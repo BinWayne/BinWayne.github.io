@@ -4,21 +4,40 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   
-  <title>Hexo</title>
+  <title>用hexo和github搭建自己的博客 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   
     <meta name="author" content="John Doe">
   
   
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+    <meta name="description" content="之前用过wordpress配置自己的博客空间，但是你得有个服务器托管。而目前github免费服务器托管解决了这事，且拥有300MB空间对于静态页面处理，这些容量还是绰绰有余。
+如何生成静态页面呢？
+可以利用hexo功能，将你的文本自动转化为静态页面，然后通过hexo 部署到github服务器上。
+环境准备安装NodeJS本人使用的是windows 64位操作系统，所以下载对应的nodejs容器
+图">
+  
+  <meta name="description" content="之前用过wordpress配置自己的博客空间，但是你得有个服务器托管。而目前github免费服务器托管解决了这事，且拥有300MB空间对于静态页面处理，这些容量还是绰绰有余。
+如何生成静态页面呢？
+可以利用hexo功能，将你的文本自动转化为静态页面，然后通过hexo 部署到github服务器上。
+环境准备安装NodeJS本人使用的是windows 64位操作系统，所以下载对应的nodejs容器
+图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用hexo和github搭建自己的博客">
+<meta property="og:url" content="http://yoursite.com/2015/10/22/how-to-setup-hexoblog/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:description" content="之前用过wordpress配置自己的博客空间，但是你得有个服务器托管。而目前github免费服务器托管解决了这事，且拥有300MB空间对于静态页面处理，这些容量还是绰绰有余。
+如何生成静态页面呢？
+可以利用hexo功能，将你的文本自动转化为静态页面，然后通过hexo 部署到github服务器上。
+环境准备安装NodeJS本人使用的是windows 64位操作系统，所以下载对应的nodejs容器
+图">
+<meta property="og:updated_time" content="2015-10-22T08:46:24.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="用hexo和github搭建自己的博客">
+<meta name="twitter:description" content="之前用过wordpress配置自己的博客空间，但是你得有个服务器托管。而目前github免费服务器托管解决了这事，且拥有300MB空间对于静态页面处理，这些容量还是绰绰有余。
+如何生成静态页面呢？
+可以利用hexo功能，将你的文本自动转化为静态页面，然后通过hexo 部署到github服务器上。
+环境准备安装NodeJS本人使用的是windows 64位操作系统，所以下载对应的nodejs容器
+图">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -52,13 +71,7 @@
   </nav>
   <div class="clearfix"></div>
 </header>
-    <div class="content">
-
-
-
-
-  
-    <article class="post">
+    <div class="content"><article class="post">
   <header>
     
       <div class="icon"></div>
@@ -70,7 +83,7 @@
     
     
   
-    <h1 class="title"><a href="/2015/10/22/how-to-setup-hexoblog/">用hexo和github搭建自己的博客</a></h1>
+    <h1 class="title">用hexo和github搭建自己的博客</h1>
   
 
   </header>
@@ -114,65 +127,18 @@
 
     
   </div>
-  <footer class="end-sep">
+  <footer>
     
       
       
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2015/10/20/hello-world/">
-  <time datetime="2015-10-20T09:02:27.563Z">
-    2015-10-20
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2015/10/20/hello-world/">Hello World</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-    
+  <div class="tags">
+    <a class="tags-link" href="/tags/hexo-github-博客/">hexo,github,博客</a>
   </div>
-  <footer class="end-sep">
-    
-      
-      
+
     
     <div class="clearfix"></div>
   </footer>
 </article>
-
-
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
 
 </div>
   </div>

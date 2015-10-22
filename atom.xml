@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-10-20T12:09:40.022Z</updated>
+  <updated>2015-10-22T08:46:24.652Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,15 +15,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[[object Object]]]></title>
-    <link href="http://yoursite.com/2015/10/20/firstOne/"/>
-    <id>http://yoursite.com/2015/10/20/firstOne/</id>
-    <published>2015-10-20T12:09:40.022Z</published>
-    <updated>2015-10-20T12:09:40.022Z</updated>
-    <content type="html"></content>
+    <title><![CDATA[用hexo和github搭建自己的博客]]></title>
+    <link href="http://yoursite.com/2015/10/22/how-to-setup-hexoblog/"/>
+    <id>http://yoursite.com/2015/10/22/how-to-setup-hexoblog/</id>
+    <published>2015-10-22T08:45:55.000Z</published>
+    <updated>2015-10-22T08:46:24.652Z</updated>
+    <content type="html"><![CDATA[<p>之前用过wordpress配置自己的博客空间，但是你得有个服务器托管。而目前github免费服务器托管解决了这事，且拥有300MB空间<br>对于静态页面处理，这些容量还是绰绰有余。</p>
+<p>如何生成静态页面呢？</p>
+<p>可以利用hexo功能，将你的文本自动转化为静态页面，然后通过hexo 部署到github服务器上。</p>
+<h2 id="环境准备"><strong>环境准备</strong></h2><h4 id="安装NodeJS"><strong>安装NodeJS</strong></h4><p>本人使用的是windows 64位操作系统，所以下载对应的<a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs容器</a></p>
+<p>图片一 downloadNodeJS</p>
+<h4 id="安装git"><strong>安装git</strong></h4><p>git shell  <a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a> 务必安装，后面hexo安装需要借助于git shell command窗口指令<br>git客户端很多，我选用的是<a href="https://desktop.github.com/" target="_blank" rel="external">github desktop</a></p>
+<h4 id="安装markdown编辑器"><strong>安装markdown编辑器</strong></h4><p>小书匠 编辑器不错，既有本地客户端软件，又有web 版本<br>在线编辑 <a href="http://markdown.xiaoshujiang.com/" target="_blank" rel="external">小书匠</a></p>
+<h2 id="GitHub"><strong>GitHub</strong></h2><p>1.注册github账号，账户名==your_name==<br>2.创建与你名字对应的仓库==your_name==.github.io<br>3.添加SSH公钥到account settings里</p>
+<h5 id="前两步骤不说了，直接跳到第三步"><strong>前两步骤不说了，直接跳到第三步</strong></h5><h4 id="1-_生成公钥"><strong>1. 生成公钥</strong></h4><p>打开gitshell<br>输入下列指令<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &#34;$&#123;your_account&#125;@qq.com&#34;    &#10;git config --global user.name &#34;$&#123;your_name&#125;&#34;</span><br></pre></td></tr></table></figure></p>
+<p>生成密钥：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &#34;$&#123;your_account&#125;@qq.com&#34;</span><br></pre></td></tr></table></figure></p>
+<p>随后需要输入公钥保存路径<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&#60;&#22238;&#36710;&#23601;&#22909;&#62;</span><br></pre></td></tr></table></figure></p>
+<p>然后系统会要你输入加密串（Passphrase）：可以直接回车<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase):&#60;&#36755;&#20837;&#21152;&#23494;&#20018;&#62;&#10;Enter same passphrase again:&#60;&#20877;&#27425;&#36755;&#20837;&#21152;&#23494;&#20018;&#62;</span><br></pre></td></tr></table></figure></p>
+<p>当你看到下面情况说明已经搞定<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">Your</span> identification has been saved <span class="keyword">in</span> /c/<span class="constant">Users</span>/<span class="constant">IBM_ADMIN</span>/.ssh/id_rsa.</span><br><span class="line"><span class="constant">Your</span> public key has been saved <span class="keyword">in</span> /c/<span class="constant">Users</span>/<span class="constant">IBM_ADMIN</span>/.ssh/id_rsa.pub.</span><br><span class="line"><span class="constant">The</span> key fingerprint <span class="symbol">is:</span></span><br><span class="line"><span class="number">5</span><span class="symbol">a:</span><span class="symbol">c8:</span><span class="number">20</span><span class="symbol">:e3</span><span class="symbol">:</span><span class="number">32</span><span class="symbol">:f3</span><span class="symbol">:</span><span class="number">71</span><span class="symbol">:</span>0<span class="symbol">a:</span><span class="number">5</span><span class="symbol">e:</span><span class="number">2</span><span class="symbol">c:</span><span class="number">4</span><span class="symbol">e:</span><span class="number">15</span><span class="symbol">:d9</span><span class="symbol">:</span><span class="number">83</span><span class="symbol">:c2</span><span class="symbol">:fc</span> <span class="variable">$&#123;</span>your_account&#125;<span class="variable">@qq</span>.com</span><br><span class="line"><span class="constant">The</span> key<span class="string">'s randomart image is:</span><br><span class="line">+--[ RSA 2048]----+</span><br><span class="line">|o  .+            |</span><br><span class="line">| + o.o           |</span><br><span class="line">|  =.. .          |</span><br><span class="line">| .oE o .         |</span><br><span class="line">|=ooo. o S        |</span><br><span class="line">|+*o+   o         |</span><br><span class="line">| oo   .          |</span><br><span class="line">|                 |</span><br><span class="line">|                 |</span><br><span class="line">+-----------------+</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2-添加SSH_Key到github"><strong>2.添加SSH Key到github</strong></h4><p>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
+<p>用文本编辑工具打开id_rsa.pub文件，如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
+<p>在GitHub的主页上点击设置按钮：<br>图片github2<br>将选择SSH Keys项，把复制的内容粘贴进去，然后点击Add Key按钮即可：</p>
+<p>图片github4</p>
+<h4 id="3-测试一下"><strong>3.测试一下</strong></h4><p>可以输入下面的命令，看看设置是否成功，==git@github.com==的部分不要修改：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure></p>
+<p>如果显示下列情况，说明OK<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装HEXO"><strong>安装HEXO</strong></h2><p>在安装hexo之前，一般都会在本地创建repo 文件夹，例如：<br>==C:\Users\IBM_ADMIN\Documents\GitHub==<br>随后在这个路径下创建 hexo文件夹<br>==C:\Users\IBM_ADMIN\Documents\GitHub\hexo==</p>
+<h4 id="1-安装hexo"><strong>1.安装hexo</strong></h4><p>打开git shell，然后执行下面cmd 指令<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2-舒适化hexo"><strong>2.舒适化hexo</strong></h4><p>进入到hexo文件夹，然后输入指令<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> init</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-生成静态页面"><strong>3.生成静态页面</strong></h4><p>生成的静态页面在${path}/hexo/public<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">ge</span><span class="label">nerate</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="4-本地启动"><strong>4.本地启动</strong></h4><p>执行以下指令<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">server</span></span><br></pre></td></tr></table></figure></p>
+<p>随后打开 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
+<h4 id="5-_部署到github"><strong>5. 部署到github</strong></h4><p>首修改你的 ==_config.yml==  文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: https://github.com/<span class="variable">$&#123;your_github_name&#125;</span>/<span class="variable">$&#123;your_repo_name&#125;</span>.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>注意type类型是目前的hexo最新版本是 ==git== 而<strong>不是</strong> ==github==<br>另外 <strong>特别注意</strong></p>
+<p>==type:== ==repository:== ==repository:== 这三个后面的value 中间必须有空格</p>
+<p>随后输入指令<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> deploy</span><br></pre></td></tr></table></figure></p>
+<p>最后你会看到你的github上对应的repo 里出现hexo的一些本地配置<br>图片github5</p>
+<p>最后可以访问你的github 博客<br><a href="http://{your_repo_name}" target="_blank" rel="external">http://{your_repo_name}</a><br>我的<a href="http://binwayne.github.io" target="_blank" rel="external">博客地址</a></p>
+<h2 id="结束语"><strong>结束语</strong></h2><p>如果你跟着这篇不那么详尽的教程，成功搭建了自己的博客，恭喜你！剩下的就是保持热情的去写自己的文章吧。</p>
+<h3 id="参考">参考</h3><p><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">hexo你的博客</a> - ibruce<br><a href="http://yangjian.me/workspace/building-blog-with-hexo/" target="_blank" rel="external">使用hexo搭建博客</a> - Alimon’s blog<br><a href="http://zipperary.com/categories/hexo/" target="_blank" rel="external">zipperary hexo 博客搭建</a> - Zipperary<br><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">hexo 教程</a> - hexo 教程</p>
+]]></content>
     <summary type="html">
-    
+    <![CDATA[<p>之前用过wordpress配置自己的博客空间，但是你得有个服务器托管。而目前github免费服务器托管解决了这事，且拥有300MB空间<br>对于静态页面处理，这些容量还是绰绰有余。</p>
+<p>如何生成静态页面呢？</p>
+<p>可以利用hexo功能，将你的文本自动转化]]>
     </summary>
+    
+      <category term="hexo,github,博客" scheme="http://yoursite.com/tags/hexo-github-%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
