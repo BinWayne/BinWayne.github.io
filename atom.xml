@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-10-22T08:46:24.652Z</updated>
+  <updated>2015-10-22T09:45:35.763Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,10 +19,10 @@
     <link href="http://yoursite.com/2015/10/22/how-to-setup-hexoblog/"/>
     <id>http://yoursite.com/2015/10/22/how-to-setup-hexoblog/</id>
     <published>2015-10-22T08:45:55.000Z</published>
-    <updated>2015-10-22T08:46:24.652Z</updated>
+    <updated>2015-10-22T09:45:35.763Z</updated>
     <content type="html"><![CDATA[<p>之前用过wordpress配置自己的博客空间，但是你得有个服务器托管。而目前github免费服务器托管解决了这事，且拥有300MB空间<br>对于静态页面处理，这些容量还是绰绰有余。</p>
 <p>如何生成静态页面呢？</p>
-<p>可以利用hexo功能，将你的文本自动转化为静态页面，然后通过hexo 部署到github服务器上。</p>
+<p>可以利用hexo功能，将你的文本自动转化为静态页面，然后通过hexo 部署到github服务器上。<br><a id="more"></a></p>
 <h2 id="环境准备"><strong>环境准备</strong></h2><h4 id="安装NodeJS"><strong>安装NodeJS</strong></h4><p>本人使用的是windows 64位操作系统，所以下载对应的<a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs容器</a></p>
 <p>图片一 downloadNodeJS</p>
 <h4 id="安装git"><strong>安装git</strong></h4><p>git shell  <a href="https://git-scm.com/downloads" target="_blank" rel="external">下载地址</a> 务必安装，后面hexo安装需要借助于git shell command窗口指令<br>git客户端很多，我选用的是<a href="https://desktop.github.com/" target="_blank" rel="external">github desktop</a></p>
@@ -32,7 +32,7 @@
 <p>生成密钥：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &#34;$&#123;your_account&#125;@qq.com&#34;</span><br></pre></td></tr></table></figure></p>
 <p>随后需要输入公钥保存路径<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&#60;&#22238;&#36710;&#23601;&#22909;&#62;</span><br></pre></td></tr></table></figure></p>
 <p>然后系统会要你输入加密串（Passphrase）：可以直接回车<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase):&#60;&#36755;&#20837;&#21152;&#23494;&#20018;&#62;&#10;Enter same passphrase again:&#60;&#20877;&#27425;&#36755;&#20837;&#21152;&#23494;&#20018;&#62;</span><br></pre></td></tr></table></figure></p>
-<p>当你看到下面情况说明已经搞定<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">Your</span> identification has been saved <span class="keyword">in</span> /c/<span class="constant">Users</span>/<span class="constant">IBM_ADMIN</span>/.ssh/id_rsa.</span><br><span class="line"><span class="constant">Your</span> public key has been saved <span class="keyword">in</span> /c/<span class="constant">Users</span>/<span class="constant">IBM_ADMIN</span>/.ssh/id_rsa.pub.</span><br><span class="line"><span class="constant">The</span> key fingerprint <span class="symbol">is:</span></span><br><span class="line"><span class="number">5</span><span class="symbol">a:</span><span class="symbol">c8:</span><span class="number">20</span><span class="symbol">:e3</span><span class="symbol">:</span><span class="number">32</span><span class="symbol">:f3</span><span class="symbol">:</span><span class="number">71</span><span class="symbol">:</span>0<span class="symbol">a:</span><span class="number">5</span><span class="symbol">e:</span><span class="number">2</span><span class="symbol">c:</span><span class="number">4</span><span class="symbol">e:</span><span class="number">15</span><span class="symbol">:d9</span><span class="symbol">:</span><span class="number">83</span><span class="symbol">:c2</span><span class="symbol">:fc</span> <span class="variable">$&#123;</span>your_account&#125;<span class="variable">@qq</span>.com</span><br><span class="line"><span class="constant">The</span> key<span class="string">'s randomart image is:</span><br><span class="line">+--[ RSA 2048]----+</span><br><span class="line">|o  .+            |</span><br><span class="line">| + o.o           |</span><br><span class="line">|  =.. .          |</span><br><span class="line">| .oE o .         |</span><br><span class="line">|=ooo. o S        |</span><br><span class="line">|+*o+   o         |</span><br><span class="line">| oo   .          |</span><br><span class="line">|                 |</span><br><span class="line">|                 |</span><br><span class="line">+-----------------+</span></span><br></pre></td></tr></table></figure></p>
+<p>当你看到下面情况说明已经搞定<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="constant">Your</span> identification has been saved <span class="keyword">in</span> /c/<span class="constant">Users</span>/<span class="constant">IBM_ADMIN</span>/.ssh/id_rsa.</span><br><span class="line"><span class="constant">Your</span> public key has been saved <span class="keyword">in</span> /c/<span class="constant">Users</span>/<span class="constant">IBM_ADMIN</span>/.ssh/id_rsa.pub.</span><br><span class="line"><span class="constant">The</span> key fingerprint <span class="symbol">is:</span></span><br><span class="line">.....</span><br></pre></td></tr></table></figure></p>
 <h4 id="2-添加SSH_Key到github"><strong>2.添加SSH Key到github</strong></h4><p>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
 <p>用文本编辑工具打开id_rsa.pub文件，如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
 <p>在GitHub的主页上点击设置按钮：<br>图片github2<br>将选择SSH Keys项，把复制的内容粘贴进去，然后点击Add Key按钮即可：</p>
@@ -58,7 +58,8 @@
     <summary type="html">
     <![CDATA[<p>之前用过wordpress配置自己的博客空间，但是你得有个服务器托管。而目前github免费服务器托管解决了这事，且拥有300MB空间<br>对于静态页面处理，这些容量还是绰绰有余。</p>
 <p>如何生成静态页面呢？</p>
-<p>可以利用hexo功能，将你的文本自动转化]]>
+<p>可以利用hexo功能，将你的文本自动转化为静态页面，然后通过hexo 部署到github服务器上。<br>]]>
+    
     </summary>
     
       <category term="hexo,github,博客" scheme="http://yoursite.com/tags/hexo-github-%E5%8D%9A%E5%AE%A2/"/>
