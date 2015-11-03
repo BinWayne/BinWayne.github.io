@@ -32,7 +32,7 @@
     <link href="http://yoursite.com/2015/10/22/how-to-setup-hexoblog/"/>
     <id>http://yoursite.com/2015/10/22/how-to-setup-hexoblog/</id>
     <published>2015-10-22T08:45:55.000Z</published>
-    <updated>2015-10-23T01:11:15.062Z</updated>
+    <updated>2015-11-03T16:00:29.095Z</updated>
     <content type="html"><![CDATA[<p>之前用过wordpress配置自己的博客空间，但是你得有个服务器托管。而目前github免费服务器托管解决了这事，且拥有300MB空间<br>对于静态页面处理，这些容量还是绰绰有余。</p>
 <p>如何生成静态页面呢？</p>
 <p>可以利用hexo功能，将你的文本自动转化为静态页面，然后通过hexo 部署到github服务器上。</p>
@@ -56,7 +56,7 @@
 <p>如果显示下列情况，说明OK<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.</span><br></pre></td></tr></table></figure></p>
 <h2 id="安装HEXO"><strong>安装HEXO</strong></h2><p>在安装hexo之前，一般都会在本地创建repo 文件夹，例如：<br>==C:\Users\IBM_ADMIN\Documents\GitHub==<br>随后在这个路径下创建 hexo文件夹<br>==C:\Users\IBM_ADMIN\Documents\GitHub\hexo==</p>
 <h4 id="1-安装hexo"><strong>1.安装hexo</strong></h4><p>打开git shell，然后执行下面cmd 指令<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="2-舒适化hexo"><strong>2.舒适化hexo</strong></h4><p>进入到hexo文件夹，然后输入指令<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> init</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-初始化hexo"><strong>2.初始化hexo</strong></h4><p>进入到hexo文件夹，然后输入指令<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">hexo</span> init</span><br></pre></td></tr></table></figure></p>
 <h4 id="3-生成静态页面"><strong>3.生成静态页面</strong></h4><p>生成的静态页面在${path}/hexo/public<br><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">ge</span><span class="label">nerate</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="4-本地启动"><strong>4.本地启动</strong></h4><p>执行以下指令<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">server</span></span><br></pre></td></tr></table></figure></p>
 <p>随后打开 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
