@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-11-03T16:04:19.153Z</updated>
+  <updated>2015-11-03T16:07:10.208Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,11 +19,10 @@
     <link href="http://yoursite.com/2015/11/03/Java-Servlet-basic/"/>
     <id>http://yoursite.com/2015/11/03/Java-Servlet-basic/</id>
     <published>2015-11-03T15:04:14.000Z</published>
-    <updated>2015-11-03T16:04:19.153Z</updated>
-    <content type="html"><![CDATA[<p>从事J2EE开发工作三年，说长不长说短不短，对于java servlet工作机制略知一二。</p>
-<h3 id="问题：Servlet如何工作？Servlet_如何初始化、共享变量、多线程处理"><strong>问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理</strong></h3><p>假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。</p>
+    <updated>2015-11-03T16:07:10.208Z</updated>
+    <content type="html"><![CDATA[<h3 id="问题：Servlet如何工作？Servlet_如何初始化、共享变量、多线程处理"><strong>问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理</strong></h3><p>假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。</p>
 <p>现在，如果有两名或更多使用者向这个服务发送请求，接下来 session 变量会发生什么变化？究竟是所有用户都是用共同的变量？还是不同的用户使用的变量都不一样？如果是后者，服务器如何区分不同用户？</p>
-<p>另一个相似的问题，如果有 <em>n</em> 名用户访问一个特定的 Servlet，那么该 Servlet 是仅在第一个用户首次访问的时候实例化，还是分别为每个用户实例化？</p>
+<p>另一个相似的问题，如果有 <em>n</em> 名用户访问一个特定的 Servlet，那么该 Servlet 是仅在第一个用户首次访问的时候实例化，还是分别为每个用户实例化？<br><a id="more"></a></p>
 <h3 id="回答"><strong>回答</strong></h3><h4 id="1-_容器"><strong>1. 容器</strong></h4><p>servlet 工作原理得从servlet 容器开始说起。</p>
 <p>题外话：什么是容器？<br>容器便是接收放置某东西的器皿，而servlet 容器形象的阐释了用来放置servlet的“器皿”</p>
 <p>Tomcat web容器其实指的就是servlet容器<br><img src="http://www.ibm.com/developerworks/cn/java/j-lo-servlet/image002.jpg" alt="图一"></p>
@@ -45,8 +44,10 @@
 </ol>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>从事J2EE开发工作三年，说长不长说短不短，对于java servlet工作机制略知一二。</p>
-<h3 id="问题：Servlet如何工作？Servlet_如何初始化、共享变量、多线程处理"><strong>问题：Servlet如何工作？Servlet 如何初始化、共]]>
+    <![CDATA[<h3 id="问题：Servlet如何工作？Servlet_如何初始化、共享变量、多线程处理"><strong>问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理</strong></h3><p>假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。</p>
+<p>现在，如果有两名或更多使用者向这个服务发送请求，接下来 session 变量会发生什么变化？究竟是所有用户都是用共同的变量？还是不同的用户使用的变量都不一样？如果是后者，服务器如何区分不同用户？</p>
+<p>另一个相似的问题，如果有 <em>n</em> 名用户访问一个特定的 Servlet，那么该 Servlet 是仅在第一个用户首次访问的时候实例化，还是分别为每个用户实例化？<br>]]>
+    
     </summary>
     
       <category term="Java,Servlet" scheme="http://yoursite.com/tags/Java-Servlet/"/>

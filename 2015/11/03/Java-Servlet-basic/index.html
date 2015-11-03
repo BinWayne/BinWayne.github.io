@@ -47,25 +47,22 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="从事J2EE开发工作三年，说长不长说短不短，对于java servlet工作机制略知一二。
-问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。
-现在，如果有两名或更多使用者向这个服务发送请求，接下来 session 变">
+<meta name="description" content="问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。
+现在，如果有两名或更多使用者向这个服务发送请求，接下来 session 变量会发生什么变化？究竟是所有用户都是用共同的变量？还是不同的用户使用的变量都不一样？如果是后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Servlet 基础原理">
 <meta property="og:url" content="http://yoursite.com/2015/11/03/Java-Servlet-basic/index.html">
 <meta property="og:site_name" content="Bin's blog">
-<meta property="og:description" content="从事J2EE开发工作三年，说长不长说短不短，对于java servlet工作机制略知一二。
-问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。
-现在，如果有两名或更多使用者向这个服务发送请求，接下来 session 变">
+<meta property="og:description" content="问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。
+现在，如果有两名或更多使用者向这个服务发送请求，接下来 session 变量会发生什么变化？究竟是所有用户都是用共同的变量？还是不同的用户使用的变量都不一样？如果是后">
 <meta property="og:image" content="http://www.ibm.com/developerworks/cn/java/j-lo-servlet/image002.jpg">
 <meta property="og:image" content="http://pic002.cnblogs.com/images/2011/348076/2011110919004322.jpg">
 <meta property="og:image" content="http://www.ibm.com/developerworks/cn/java/j-lo-servlet/image024.jpg">
-<meta property="og:updated_time" content="2015-11-03T16:04:19.153Z">
+<meta property="og:updated_time" content="2015-11-03T16:07:10.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Servlet 基础原理">
-<meta name="twitter:description" content="从事J2EE开发工作三年，说长不长说短不短，对于java servlet工作机制略知一二。
-问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。
-现在，如果有两名或更多使用者向这个服务发送请求，接下来 session 变">
+<meta name="twitter:description" content="问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。
+现在，如果有两名或更多使用者向这个服务发送请求，接下来 session 变量会发生什么变化？究竟是所有用户都是用共同的变量？还是不同的用户使用的变量都不一样？如果是后">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -232,10 +229,9 @@
       
 
       
-        <span itemprop="articleBody"><p>从事J2EE开发工作三年，说长不长说短不短，对于java servlet工作机制略知一二。</p>
-<h3 id="问题：Servlet如何工作？Servlet_如何初始化、共享变量、多线程处理"><strong>问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理</strong></h3><p>假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。</p>
+        <span itemprop="articleBody"><h3 id="问题：Servlet如何工作？Servlet_如何初始化、共享变量、多线程处理"><strong>问题：Servlet如何工作？Servlet 如何初始化、共享变量、多线程处理</strong></h3><p>假设我有一个运行了大量 Servlet 的 web 服务器。通过 Servlet 之间传输信息得到 Servlet 上下文，并设置 session 变量。</p>
 <p>现在，如果有两名或更多使用者向这个服务发送请求，接下来 session 变量会发生什么变化？究竟是所有用户都是用共同的变量？还是不同的用户使用的变量都不一样？如果是后者，服务器如何区分不同用户？</p>
-<p>另一个相似的问题，如果有 <em>n</em> 名用户访问一个特定的 Servlet，那么该 Servlet 是仅在第一个用户首次访问的时候实例化，还是分别为每个用户实例化？</p>
+<p>另一个相似的问题，如果有 <em>n</em> 名用户访问一个特定的 Servlet，那么该 Servlet 是仅在第一个用户首次访问的时候实例化，还是分别为每个用户实例化？<br><a id="more"></a></p>
 <h3 id="回答"><strong>回答</strong></h3><h4 id="1-_容器"><strong>1. 容器</strong></h4><p>servlet 工作原理得从servlet 容器开始说起。</p>
 <p>题外话：什么是容器？<br>容器便是接收放置某东西的器皿，而servlet 容器形象的阐释了用来放置servlet的“器皿”</p>
 <p>Tomcat web容器其实指的就是servlet容器<br><img src="http://www.ibm.com/developerworks/cn/java/j-lo-servlet/image002.jpg" alt="图一"></p>
